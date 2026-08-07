@@ -13,7 +13,8 @@ function obterConexao(): PDO {
     $user   = getenv('DB_USER');
     $pass   = getenv('DB_PASS');
 
-    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=require";
+$sslmode = getenv('DB_SSLMODE') ?: 'disable';
+$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=$sslmode";
 
     try {
         $pdo = new PDO($dsn, $user, $pass, [
