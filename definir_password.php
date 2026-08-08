@@ -54,55 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
-    <style>
-        body { display:flex; align-items:center; justify-content:center; min-height:100vh; }
-        .card {
-            width:100%; max-width:420px;
-            background:var(--cor-fundo-2); border:1px solid var(--cor-borda);
-            border-radius:var(--raio); padding:2.5rem 2rem;
-            box-shadow:var(--sombra);
-        }
-        .card h1 { font-size:20px; font-weight:600; margin-bottom:.25rem; }
-        .card p.sub { font-size:13px; color:var(--cor-texto-2); margin-bottom:1.8rem; }
-        .campo-grupo { margin-bottom:1.1rem; }
-        .campo-grupo label {
-            display:block; font-size:12px; font-weight:500;
-            color:var(--cor-texto-2); margin-bottom:.4rem;
-            text-transform:uppercase; letter-spacing:.05em;
-        }
-        .campo-grupo input {
-            width:100%; background:var(--cor-fundo-3);
-            border:1px solid var(--cor-borda-forte); border-radius:var(--raio-sm);
-            padding:.65rem .9rem; font-family:var(--fonte-ui); font-size:14px;
-            color:var(--cor-texto); outline:none;
-            transition:border-color var(--transicao), box-shadow var(--transicao);
-        }
-        .campo-grupo input:focus {
-            border-color:var(--cor-acento);
-            box-shadow:0 0 0 3px var(--cor-acento-suave);
-        }
-        .btn {
-            width:100%; padding:.75rem;
-            background:var(--cor-acento); color:#000;
-            border:none; border-radius:var(--raio-sm);
-            font-family:var(--fonte-ui); font-size:14px; font-weight:600;
-            cursor:pointer; margin-top:.5rem;
-            transition:background var(--transicao);
-        }
-        .btn:hover { background:var(--cor-acento-hover); }
-        .alerta { padding:.7rem 1rem; border-radius:var(--raio-sm); font-size:13px; margin-bottom:1.2rem; }
-        .alerta-erro    { background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.3); color:var(--cor-erro); }
-        .alerta-sucesso { background:rgba(74,222,128,.1);  border:1px solid rgba(74,222,128,.3);  color:var(--cor-sucesso); }
-        .badge-metodo {
-            display:inline-flex; align-items:center; gap:.4rem;
-            font-size:12px; padding:.3rem .7rem;
-            border-radius:999px; margin-bottom:1.5rem;
-            background:var(--cor-acento-suave); border:1px solid var(--cor-borda-forte);
-            color:var(--cor-texto-2);
-        }
-        .voltar { display:block; text-align:center; margin-top:1.2rem; font-size:13px; color:var(--cor-acento); text-decoration:none; }
-        .voltar:hover { text-decoration:underline; }
-    </style>
+
 </head>
 <body>
 <div class="card">
