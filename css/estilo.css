@@ -7,29 +7,23 @@
    VARIÁVEIS GLOBAIS
 ------------------------------------------------------------ */
 :root {
-    --cor-fundo:         #0d0f14;
-    --cor-fundo-2:       #13161e;
-    --cor-fundo-3:       #1a1e29;
-    --cor-borda:         #252935;
-    --cor-borda-forte:   #2e3446;
-    --cor-acento:        #6c8fff;
-    --cor-acento-hover:  #8aa4ff;
-    --cor-acento-suave:  rgba(108, 143, 255, 0.12);
-    --cor-texto:         #e2e6f0;
-    --cor-texto-2:       #8891aa;
-    --cor-texto-3:       #555d74;
-    --cor-bot-balao:     #1a1e29;
-    --cor-user-balao:    #1e2d5a;
-    --cor-user-texto:    #c8d8ff;
+    --cor-fundo:         #0a0e1a;
+    --cor-fundo-2:       #0e1422;
+    --cor-fundo-3:       #141c2e;
+    --cor-borda:         #1f2738;
+    --cor-borda-forte:   #29334a;
+    --cor-acento:        #e31e24;
+    --cor-acento-hover:  #f0454b;
+    --cor-acento-suave:  rgba(227, 30, 36, 0.12);
+    --cor-texto:         #e8ecf5;
+    --cor-texto-2:       #8b93ab;
+    --cor-texto-3:       #565f7a;
+    --cor-bot-balao:     #141c2e;
+    --cor-user-balao:    #0e2f5e;
+    --cor-user-texto:    #cfe0ff;
     --cor-sucesso:       #4ade80;
-    --cor-erro:          #f87171;
-    --raio:              14px;
-    --raio-sm:           8px;
-    --fonte-ui:          'Sora', sans-serif;
-    --fonte-mono:        'JetBrains Mono', monospace;
-    --sombra:            0 4px 24px rgba(0,0,0,0.4);
-    --transicao:         0.2s ease;
-    --largura-lateral:   260px;
+    --cor-erro:          #ff5a5a;
+    ...
 }
 
 /* ------------------------------------------------------------
