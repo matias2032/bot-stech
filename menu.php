@@ -26,7 +26,7 @@ $stmt = $pdo->prepare("
 $stmt->execute([':bot' => BOT_ID]);
 $info = $stmt->fetch();
 
-$nome_bot      = $info['nome_bot']      ?? 'ChatBot';
+$nome_bot      = $info['nome_bot']      ?? 'StechBot';
 $descricao_bot = $info['descricao']     ?? 'Assistente inteligente';
 $nome_criador  = $info['nome_completo'] ?? '';
 $profissao     = $info['profissao']     ?? '';
