@@ -713,7 +713,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
                 <circle cx="14" cy="14" r="2.5" fill="var(--cor-acento)"/>
             </svg>
         </div>
-        <span class="nav-logo-nome">FinBot</span>
+        <span class="nav-logo-nome">StechBot</span>
     </a>
 
     <div class="nav-links">
