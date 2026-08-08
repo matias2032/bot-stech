@@ -23,7 +23,13 @@
     --cor-user-texto:    #cfe0ff;
     --cor-sucesso:       #4ade80;
     --cor-erro:          #ff5a5a;
-    ...
+    --raio:              14px;
+        --raio-sm:           8px;
+        --fonte-ui:          'Sora', sans-serif;
+        --fonte-mono:        'JetBrains Mono', monospace;
+        --sombra:            0 4px 24px rgba(0,0,0,0.4);
+        --transicao:         0.2s ease;
+        --largura-lateral:   260px;
 }
 
 /* ------------------------------------------------------------
