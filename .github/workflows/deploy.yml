@@ -18,4 +18,5 @@ jobs:
 
       - name: Trigger Deploy no Coolify
         run: |
-          curl -X GET "${{ secrets.COOLIFY_DEPLOY_URL }}"
+          curl -f -i -X GET "${{ secrets.COOLIFY_DEPLOY_URL }}" \
+               -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}"
