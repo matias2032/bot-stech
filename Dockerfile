@@ -1,11 +1,9 @@
 FROM php:8.2-apache
 
+# Instala apenas as dependências do PostgreSQL e cURL
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     libcurl4-openssl-dev \
-    poppler-utils \
-    tesseract-ocr \
-    tesseract-ocr-por \
     && docker-php-ext-install pdo pdo_pgsql curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
