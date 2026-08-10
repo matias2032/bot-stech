@@ -3,7 +3,7 @@
 //  LOGIN.PHP — Formulário e processamento de autenticação
 // ============================================================
 
-require_once 'auth.php';
+require_once __DIR__ . '/auth.php';
 iniciarSessao();
 
 // Se já está logado, vai directo para index

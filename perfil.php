@@ -1,7 +1,7 @@
 <?php
-require_once 'auth.php';
-require_once 'configuracao.php';
-require_once 'conexao.php';
+require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/configuracao.php';
+require_once __DIR__ . '/conexao.php';
 
 exigirAdmin();
 

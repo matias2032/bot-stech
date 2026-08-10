@@ -3,10 +3,11 @@
 //  DEFINIR_PASSWORD.PHP — Permite a contas Google definirem
 //  uma palavra-passe para também poderem usar login tradicional
 // ============================================================
+require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/conexao.php';
 
-require_once 'auth.php';
 exigirLogin();
-require_once 'conexao.php';
+
 
 $erro    = '';
 $sucesso = '';

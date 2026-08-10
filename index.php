@@ -2,7 +2,8 @@
 // ============================================================
 //  INDEX.PHP — Landing page do ChatBot de Educação Financeira
 // ============================================================
-require_once 'auth.php';
+require_once __DIR__ . '/auth.php';
+
 iniciarSessao();
 $logado = estaLogado();
 $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';

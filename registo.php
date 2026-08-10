@@ -3,7 +3,10 @@
 //  REGISTO.PHP — Formulário e processamento de registo
 // ============================================================
 
-require_once 'auth.php';
+require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/configuracao.php';
+require_once __DIR__ . '/conexao.php';
+
 iniciarSessao();
 
 // Já logado? Redireciona

@@ -3,7 +3,8 @@
 //  LOGOUT.PHP — Destroi a sessão e redireciona para login
 // ============================================================
 
-require_once 'auth.php';
+require_once __DIR__ . '/auth.php';
+
 iniciarSessao();
 
 // Limpar todas as variáveis de sessão
