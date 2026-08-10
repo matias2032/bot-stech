@@ -138,13 +138,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .btn-auth {
             width: 100%; padding: 0.75rem;
-            background: var(--cor-acento); color: #fff;
+            background: var(--cor-user-balao); color: #fff;
             border: none; border-radius: var(--raio-sm);
             font-family: var(--fonte-ui); font-size: 14px; font-weight: 600;
             cursor: pointer; margin-top: 0.5rem;
             transition: background var(--transicao);
         }
-        .btn-auth:hover { background: var(--cor-acento-hover); }
+        .btn-auth:hover { background: var(--cor-user-balao-hover); }
 
         .auth-link { text-align: center; margin-top: 1.2rem; font-size: 13px; color: var(--cor-texto-2); }
         .auth-link a { color: var(--cor-acento); text-decoration: none; font-weight: 500; }
@@ -187,13 +187,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="auth-card">
     <div class="auth-logo">
         <div class="auth-logo-icone">
-            <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="var(--cor-acento)" stroke-width="1.5"/>
-                <path d="M8 14c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="var(--cor-acento)" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="14" cy="14" r="2.5" fill="var(--cor-acento)"/>
-            </svg>
+    <img style="width:24px;height:24px;" src="logo.svg">
         </div>
-        <span class="auth-logo-nome">ChatBot</span>
+        <span class="auth-logo-nome">StechBot</span>
     </div>
 
     <h1 class="auth-titulo">Criar conta</h1>

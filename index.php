@@ -37,14 +37,15 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
             justify-content: space-between;
             padding: 0 40px;
             height: 64px;
-            background: rgba(13,15,20,0.85);
+            background: rgba(255, 255, 255, 0.85);
+            
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(37,41,53,0.6);
-            transition: background var(--transicao);
+            border-bottom: none;
+                       transition: background var(--transicao);
         }
         .navbar.scrolled {
-            background: rgba(13,15,20,0.97);
+            background: rgba(238, 243, 255, 0.97);
             border-bottom-color: var(--cor-borda);
         }
         .nav-logo {
@@ -68,19 +69,19 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         .nav-link {
             padding: 7px 14px; border-radius: var(--raio-sm);
             font-size: 13px; font-weight: 500;
-            color: var(--cor-texto-2); text-decoration: none;
+            color: var(--cor-texto); text-decoration: none;
             transition: all var(--transicao);
         }
         .nav-link:hover { color: var(--cor-texto); background: var(--cor-fundo-3); }
         .nav-cta {
             padding: 8px 18px;
-            background: var(--cor-acento); color: #fff;
+            background: var(--cor-user-balao); color: #fff;
             border: none; border-radius: var(--raio-sm);
             font-family: var(--fonte-ui); font-size: 13px; font-weight: 600;
             cursor: pointer; text-decoration: none;
             transition: background var(--transicao), transform var(--transicao);
         }
-        .nav-cta:hover { background: var(--cor-acento-hover); transform: translateY(-1px); }
+        .nav-cta:hover { background: var(--cor-user-balao-hover); transform: translateY(-1px); }
         .nav-user {
             display: flex; align-items: center; gap: 10px;
         }
@@ -214,7 +215,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         }
         .btn-hero-primario {
             display: flex; align-items: center; gap: 8px;
-            padding: 14px 28px; background: var(--cor-acento); color: #fff;
+            padding: 14px 28px; background: var(--cor-user-balao); color: #fff;
             border: none; border-radius: var(--raio);
             font-family: var(--fonte-ui); font-size: 15px; font-weight: 600;
             cursor: pointer; text-decoration: none;
@@ -222,7 +223,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
             box-shadow: 0 4px 20px rgba(108,143,255,0.3);
         }
         .btn-hero-primario:hover {
-            background: var(--cor-acento-hover);
+            background: var(--cor-user-balao-hover);
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(108,143,255,0.4);
         }
@@ -313,6 +314,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
             padding: 24px;
         }
         .hero-card-tag {
+   
             display: inline-block; padding: 3px 10px;
             border-radius: 20px; font-size: 11px; font-weight: 600;
             margin-bottom: 10px;
@@ -665,7 +667,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         }
         .rodape-logo { display: flex; align-items: center; gap: 8px; }
         .rodape-nome { font-size: 14px; font-weight: 600; color: var(--cor-texto); }
-        .rodape-copy { font-size: 12px; color: var(--cor-texto-3); }
+        .rodape-copy { font-size: 12px; color: var(--cor-texto-3); text-align: center; }
         .rodape-links { display: flex; gap: 20px; }
         .rodape-link { font-size: 13px; color: var(--cor-texto-3); text-decoration: none; transition: color var(--transicao); }
         .rodape-link:hover { color: var(--cor-acento); }
@@ -695,7 +697,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
             .carrossel-pista { padding: 0 20px 16px; }
             .nav-links { display: none; }
             .hero-stats { gap: 24px; }
-            .rodape { flex-direction: column; text-align: center; }
+            .rodape { flex-direction: column; }
         }
     </style>
 </head>
@@ -707,11 +709,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
 <nav class="navbar" id="navbar">
     <a href="index.php" class="nav-logo">
         <div class="nav-logo-icone">
-            <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="var(--cor-acento)" stroke-width="1.5"/>
-                <path d="M8 14c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="var(--cor-acento)" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="14" cy="14" r="2.5" fill="var(--cor-acento)"/>
-            </svg>
+        <img style="width:24px;height:24px;" src="logo.svg">
         </div>
         <span class="nav-logo-nome">StechBot</span>
     </a>
@@ -754,12 +752,12 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
     </div>
 
     <h1 class="hero-titulo">
-        O teu guia pessoal para<br>
-        <span class="hero-titulo-destaque">liberdade financeira</span>
+        O seu assistente pessoal<br>
+        <span class="hero-titulo-destaque"> de IA</span>
     </h1>
 
     <p class="hero-subtitulo">
-        Faz perguntas, aprende a investir, controla o orçamento e toma decisões financeiras mais inteligentes — tudo numa conversa natural.
+        Informe-se melhor acerca dos nossos serviços aqui, com respostas orientadas ás suas necessidades
     </p>
 
     <div class="hero-acoes">
@@ -771,7 +769,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         <?php else: ?>
             <a href="registo.php" class="btn-hero-primario">
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Começar agora — é grátis
+                 Criar conta gratuita
             </a>
             <a href="menu.php" class="btn-hero-secundario">
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" stroke="currentColor" stroke-width="2"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>
@@ -798,73 +796,115 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         <div class="hero-stat-sep"></div>
         <div class="hero-stat">
             <div class="hero-stat-valor"><span class="contador-animado" data-alvo="50">0</span>+</div>
-            <div class="hero-stat-label">Tópicos financeiros</div>
+            <div class="hero-stat-label">Respostas Personalizadas</div>
         </div>
     </div>
 </section>
 
 
 <!-- ============================================================
-     CARROSSEL DE HEROES
+     CARROSSEL DE SERVIÇOS
 ============================================================ -->
 <section class="secao-carrossel">
-    <p class="secao-label">Explora os temas</p>
+    <p class="secao-label">Explora os nossos serviços</p>
 
     <div class="carrossel-pista" id="carrossel">
 
         <div class="hero-card">
             <img
-                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
-                alt="Investimentos"
+                src="https://images.unsplash.com/photo-1590433333434-09df2b2a35a5?w=800&q=80"
+                alt="Starlink"
                 loading="lazy"
             >
             <div class="hero-card-overlay"></div>
             <div class="hero-card-conteudo">
-                <span class="hero-card-tag tag-investimento">Investimentos</span>
-                <h3 class="hero-card-titulo">Faz o teu dinheiro trabalhar por ti</h3>
-                <p class="hero-card-desc">Aprende sobre acções, fundos e obrigações de forma simples.</p>
+            
+                <h3 class="hero-card-titulo">Internet via satélite, em qualquer lugar</h3>
+                <p class="hero-card-desc">Montagem completa do Starlink, mesmo em zonas remotas sem rede móvel.</p>
             </div>
         </div>
 
         <div class="hero-card">
             <img
-                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
-                alt="Poupança"
+                src="https://images.unsplash.com/photo-1563920443079-783e5c786b83?w=800&q=80"
+                alt="Câmeras de segurança"
                 loading="lazy"
             >
             <div class="hero-card-overlay"></div>
             <div class="hero-card-conteudo">
-                <span class="hero-card-tag tag-poupanca">Poupança</span>
-                <h3 class="hero-card-titulo">Constrói o teu fundo de emergência</h3>
-                <p class="hero-card-desc">Estratégias práticas para poupar mais todos os meses.</p>
+            
+                <h3 class="hero-card-titulo">Vê a tua casa ou negócio de qualquer lugar</h3>
+                <p class="hero-card-desc">Venda e montagem de câmeras de segurança adaptadas ao teu espaço.</p>
             </div>
         </div>
 
         <div class="hero-card">
             <img
-                src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=800&q=80"
-                alt="Orçamento"
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
+                alt="Redes e internet"
                 loading="lazy"
             >
             <div class="hero-card-overlay"></div>
             <div class="hero-card-conteudo">
-                <span class="hero-card-tag tag-orcamento">Orçamento</span>
-                <h3 class="hero-card-titulo">Controla as tuas finanças pessoais</h3>
-                <p class="hero-card-desc">Métodos como 50/30/20 explicados passo a passo.</p>
+          
+                <h3 class="hero-card-titulo">Redes rápidas e estáveis, à tua medida</h3>
+                <p class="hero-card-desc">Montagem e configuração de redes e internet para casa ou empresa.</p>
             </div>
         </div>
 
         <div class="hero-card">
             <img
-                src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80"
-                alt="Crédito"
+                src="https://images.unsplash.com/photo-1719253480609-579ad1622c65?w=800&q=80"
+                alt="Desenvolvimento mobile e web design"
                 loading="lazy"
             >
             <div class="hero-card-overlay"></div>
             <div class="hero-card-conteudo">
-                <span class="hero-card-tag tag-credito">Crédito</span>
-                <h3 class="hero-card-titulo">Entende e melhora o teu score</h3>
-                <p class="hero-card-desc">Como o crédito funciona e como usá-lo a teu favor.</p>
+          
+                <h3 class="hero-card-titulo">A tua ideia, transformada em aplicação</h3>
+                <p class="hero-card-desc">Desenvolvimento mobile e web design pensados para o teu negócio.</p>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <img
+                src="https://images.unsplash.com/photo-1549109926-9620d1b9bfa2?w=800&q=80"
+                alt="Cerca eléctrica"
+                loading="lazy"
+            >
+            <div class="hero-card-overlay"></div>
+            <div class="hero-card-conteudo">
+                
+                <h3 class="hero-card-titulo">Protege o teu perímetro com tranquilidade</h3>
+                <p class="hero-card-desc">Montagem e manutenção de cercas eléctricas residenciais e comerciais.</p>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <img
+                src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80"
+                alt="Design gráfico"
+                loading="lazy"
+            >
+            <div class="hero-card-overlay"></div>
+            <div class="hero-card-conteudo">
+      
+                <h3 class="hero-card-titulo">Uma identidade visual que se destaca</h3>
+                <p class="hero-card-desc">Design gráfico para a marca, materiais e presença digital do teu negócio.</p>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <img
+                src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=800&q=80"
+                alt="Antivírus"
+                loading="lazy"
+            >
+            <div class="hero-card-overlay"></div>
+            <div class="hero-card-conteudo">
+      
+                <h3 class="hero-card-titulo">Os teus dispositivos, sempre protegidos</h3>
+                <p class="hero-card-desc">Venda e configuração de antivírus para computadores e redes.</p>
             </div>
         </div>
 
@@ -875,6 +915,9 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         <div class="carrossel-dot" data-idx="1"></div>
         <div class="carrossel-dot" data-idx="2"></div>
         <div class="carrossel-dot" data-idx="3"></div>
+        <div class="carrossel-dot" data-idx="4"></div>
+        <div class="carrossel-dot" data-idx="5"></div>
+        <div class="carrossel-dot" data-idx="6"></div>
     </div>
 </section>
 
@@ -894,14 +937,14 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
             <div class="passo-numero">01</div>
             <div class="passo-icone" style="background:rgba(108,143,255,0.12);">💬</div>
             <div class="passo-titulo">Faz a tua pergunta</div>
-            <div class="passo-desc">Escreve o que quiseres saber sobre finanças, desde o básico ao avançado, sem julgamentos.</div>
+            <div class="passo-desc">Escreve o que quiseres saber sobre os nossos serviços e sobre nós, que terá a resposta que deseja.</div>
             <div class="passo-linha"></div>
         </div>
         <div class="passo">
             <div class="passo-numero">02</div>
             <div class="passo-icone" style="background:rgba(74,222,128,0.1);">🧠</div>
-            <div class="passo-titulo">O FinBot analisa</div>
-            <div class="passo-desc">A IA processa a tua questão com base em conhecimento financeiro actualizado e contextualizado para a tua situação.</div>
+            <div class="passo-titulo">O StechBot analisa</div>
+            <div class="passo-desc">A IA processa a tua questão com base no nosso catálogo actualizado e contextualizado para a tua situação.</div>
             <div class="passo-linha"></div>
         </div>
         <div class="passo">
@@ -925,47 +968,32 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
                 Conversa em tempo real
             </div>
             <h2 class="demo-titulo">Respostas que realmente ajudam</h2>
-            <p class="demo-desc">
-                O FinBot não te dá respostas genéricas. Entende o teu contexto e responde de forma directa e útil, como um consultor financeiro acessível.
-            </p>
-            <ul class="demo-lista">
-                <li>Explica conceitos complexos de forma simples</li>
-                <li>Adapta-se ao teu nível de conhecimento</li>
-                <li>Sugere recursos e próximos passos concretos</li>
-                <li>Disponível 24 horas, 7 dias por semana</li>
-            </ul>
+           <p class="demo-desc">
+    O StechBot não te dá respostas genéricas. Entende o teu contexto e responde de forma directa e útil, como um assistente pessoal sempre disponível.
+</p>
+<ul class="demo-lista">
+    <li>Esclarece dúvidas sobre os nossos serviços de forma simples</li>
+    <li>Adapta-se ao teu contexto e necessidade específica</li>
+    <li>Sugere equipamentos, soluções e próximos passos concretos</li>
+    <li>Disponível 24 horas, 7 dias por semana</li>
+</ul>
         </div>
 
-        <div class="chat-mockup">
-            <div class="chat-mockup-header">
-                <div class="chat-mockup-dot"></div>
-                <span class="chat-mockup-nome">FinBot — Online</span>
-            </div>
-            <div class="chat-mockup-body" id="chat-demo">
-                <div class="chat-msg chat-msg-bot" id="msg1">
-                    <div class="chat-msg-avatar">🤖</div>
-                    <div class="chat-msg-balao">Olá! Como posso ajudar-te hoje com as tuas finanças?</div>
-                </div>
-                <div class="chat-msg chat-msg-user" id="msg2">
-                    <div class="chat-msg-avatar">👤</div>
-                    <div class="chat-msg-balao">O que é um fundo de emergência e quanto devo ter?</div>
-                </div>
-                <div class="chat-msg chat-msg-bot" id="msg3">
-                    <div class="chat-msg-avatar">🤖</div>
-                    <div class="chat-msg-balao">Um fundo de emergência é uma reserva para imprevistos. O ideal é ter <strong style="color:var(--cor-acento)">3 a 6 meses</strong> de despesas guardados numa conta de fácil acesso. Quer que te explique como calcular o valor certo para o teu caso?</div>
-                </div>
-                <div class="chat-msg chat-msg-user" id="msg4">
-                    <div class="chat-msg-avatar">👤</div>
-                    <div class="chat-msg-balao">Sim, por favor!</div>
-                </div>
-            </div>
-            <div class="chat-mockup-input">
-                <div class="chat-mockup-input-field">Faz uma pergunta…</div>
-                <button class="chat-mockup-btn">
-                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-            </div>
-        </div>
+<div class="chat-mockup">
+    <div class="chat-mockup-header">
+        <div class="chat-mockup-dot"></div>
+        <span class="chat-mockup-nome">StechBot</span>
+    </div>
+    <div class="chat-mockup-body" id="chat-demo">
+        <!-- Mensagens geradas dinamicamente via JS (ver secção script) -->
+    </div>
+    <div class="chat-mockup-input">
+        <div class="chat-mockup-input-field">Faz uma pergunta…</div>
+        <button class="chat-mockup-btn">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </div>
+</div>
     </div>
 </section>
 
@@ -975,55 +1003,55 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
 ============================================================ -->
 <section class="secao" id="funcionalidades">
     <div class="secao-cabecalho">
-        <p class="secao-label">Funcionalidades</p>
-        <h2 class="secao-titulo">Tudo o que precisas para evoluir</h2>
-        <p class="secao-subtitulo">Uma plataforma completa para a tua educação financeira.</p>
-    </div>
+    <p class="secao-label">Funcionalidades</p>
+    <h2 class="secao-titulo">Tudo o que precisas para tirar dúvidas</h2>
+    <p class="secao-subtitulo">Um canal directo entre ti e a Stech Engenharia.</p>
+</div>
 
-    <div class="funcionalidades">
-        <div class="func-card">
-            <div class="func-icone" style="background:rgba(108,143,255,0.12);">📊</div>
-            <div class="func-texto">
-                <div class="func-titulo">Análise de orçamento</div>
-                <div class="func-desc">Descreve as tuas receitas e despesas e recebe sugestões personalizadas para optimizar as tuas finanças.</div>
-            </div>
-        </div>
-        <div class="func-card">
-            <div class="func-icone" style="background:rgba(74,222,128,0.1);">📈</div>
-            <div class="func-texto">
-                <div class="func-titulo">Guia de investimentos</div>
-                <div class="func-desc">Aprende sobre acções, ETFs, fundos de investimento, criptomoedas e muito mais, com linguagem acessível.</div>
-            </div>
-        </div>
-        <div class="func-card">
-            <div class="func-icone" style="background:rgba(251,191,36,0.1);">🎯</div>
-            <div class="func-texto">
-                <div class="func-titulo">Objectivos financeiros</div>
-                <div class="func-desc">Define metas como comprar casa, reformar cedo ou pagar dívidas, e recebe um plano de acção estruturado.</div>
-            </div>
-        </div>
-        <div class="func-card">
-            <div class="func-icone" style="background:rgba(96,165,250,0.1);">🔐</div>
-            <div class="func-texto">
-                <div class="func-titulo">Histórico de conversas</div>
-                <div class="func-desc">Com conta criada, o teu histórico fica guardado para poderes retomar onde ficaste ou revisitar conselhos anteriores.</div>
-            </div>
-        </div>
-        <div class="func-card">
-            <div class="func-icone" style="background:rgba(167,139,250,0.1);">📚</div>
-            <div class="func-texto">
-                <div class="func-titulo">Base de conhecimento</div>
-                <div class="func-desc">Respaldado por uma base de dados financeira constantemente actualizada com conceitos, estratégias e exemplos práticos.</div>
-            </div>
-        </div>
-        <div class="func-card">
-            <div class="func-icone" style="background:rgba(248,113,113,0.1);">⚡</div>
-            <div class="func-texto">
-                <div class="func-titulo">Respostas instantâneas</div>
-                <div class="func-desc">Sem esperas. Recebe respostas detalhadas em segundos, disponível a qualquer hora do dia ou da noite.</div>
-            </div>
+<div class="funcionalidades">
+    <div class="func-card">
+        <div class="func-icone" style="background:rgba(108,143,255,0.12);">🛠️</div>
+        <div class="func-texto">
+            <div class="func-titulo">Catálogo de serviços</div>
+            <div class="func-desc">Descreve o que precisas e recebe informação clara sobre os serviços da Stech Engenharia que melhor se adequam à tua situação.</div>
         </div>
     </div>
+    <div class="func-card">
+        <div class="func-icone" style="background:rgba(74,222,128,0.1);">📐</div>
+        <div class="func-texto">
+            <div class="func-titulo">Recomendação de equipamentos</div>
+            <div class="func-desc">Explica o teu cenário (área, distância, contexto) e recebe sugestões de equipamentos e soluções técnicas adequadas.</div>
+        </div>
+    </div>
+    <div class="func-card">
+        <div class="func-icone" style="background:rgba(251,191,36,0.1);">💬</div>
+        <div class="func-texto">
+            <div class="func-titulo">Apoio pré-orçamento</div>
+            <div class="func-desc">Esclarece dúvidas antes de pedires uma proposta, para chegares à nossa equipa já com o essencial definido.</div>
+        </div>
+    </div>
+    <div class="func-card">
+        <div class="func-icone" style="background:rgba(96,165,250,0.1);">🔐</div>
+        <div class="func-texto">
+            <div class="func-titulo">Histórico de conversas</div>
+            <div class="func-desc">Com conta criada, o teu histórico fica guardado para poderes retomar onde ficaste ou revisitar respostas anteriores.</div>
+        </div>
+    </div>
+    <div class="func-card">
+        <div class="func-icone" style="background:rgba(167,139,250,0.1);">📚</div>
+        <div class="func-texto">
+            <div class="func-titulo">Base de conhecimento</div>
+            <div class="func-desc">Respaldado por uma base de dados sobre os produtos e serviços da Stech Engenharia, sempre actualizada.</div>
+        </div>
+    </div>
+    <div class="func-card">
+        <div class="func-icone" style="background:rgba(248,113,113,0.1);">⚡</div>
+        <div class="func-texto">
+            <div class="func-titulo">Respostas instantâneas</div>
+            <div class="func-desc">Sem esperas. Recebe respostas detalhadas em segundos, disponível a qualquer hora do dia ou da noite.</div>
+        </div>
+    </div>
+</div>
 </section>
 
 
@@ -1031,34 +1059,33 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
      TÓPICOS INTERACTIVOS
 ============================================================ -->
 <section class="secao-topicos" id="topicos">
-    <div class="secao-cabecalho">
-        <p class="secao-label">Explora tópicos</p>
-        <h2 class="secao-titulo">O que queres aprender hoje?</h2>
-        <p class="secao-subtitulo">Clica num tópico para começar uma conversa directamente sobre esse tema.</p>
-    </div>
+<div class="secao-cabecalho">
+    <p class="secao-label">Explora tópicos</p>
+    <h2 class="secao-titulo">Podes perguntar o que quiseres sobre os nossos serviços</h2>
+    <p class="secao-subtitulo">Clica num tópico para começar uma conversa directamente sobre esse tema.</p>
+</div>
 
-    <div class="topicos-grid">
-        <button class="topico-chip" onclick="abrirTopico('O que são juros compostos e como funcionam?')">Juros compostos</button>
-        <button class="topico-chip" onclick="abrirTopico('O que é Poupança e Xitique e como posso usá-los?')">Poupança/Xitique</button>
-        <button class="topico-chip" onclick="abrirTopico('Como criar um orçamento familiar eficiente?')">Orçamento familiar</button>
-        <button class="topico-chip" onclick="abrirTopico('Explica-me a regra 50/30/20 para gerir o meu dinheiro.')">Regra 50/30/20</button>
-        <button class="topico-chip" onclick="abrirTopico('O que é a inflação e como me afecta?')">Inflação</button>
-        <button class="topico-chip" onclick="abrirTopico('Como posso sair das dívidas de forma eficaz?')">Sair das dívidas</button>
-        <button class="topico-chip" onclick="abrirTopico('O que são acções e como investir nelas?')">Acções</button>
-        <button class="topico-chip" onclick="abrirTopico('Como calcular e planear uma reforma antecipada?')">Reforma antecipada</button>
-        <button class="topico-chip" onclick="abrirTopico('O que é o score de crédito e como melhorá-lo?')">Score de crédito</button>
-        <button class="topico-chip" onclick="abrirTopico('Como posso investir com pouco dinheiro?')"><span>💰</span> Investir com pouco</button>
-        <button class="topico-chip" onclick="abrirTopico('O que é diversificação de investimentos e por que é importante?')"><span>🌐</span> Diversificação</button>
-        <button class="topico-chip" onclick="abrirTopico('O que é um PPR e como funciona para a reforma?')"><span>🛡️</span> PPR / Reforma</button>
-        <button class="topico-chip" onclick="abrirTopico('O que são criptomoedas e como investir com segurança?')"><span>🔐</span> Criptomoedas</button>
-    </div>
+<div class="topicos-grid">
+    <button class="topico-chip" onclick="abrirTopico('Como funciona a montagem do Starlink?')">Starlink</button>
+    <button class="topico-chip" onclick="abrirTopico('Que tipos de câmeras de segurança vendem e instalam?')">Câmeras de segurança</button>
+    <button class="topico-chip" onclick="abrirTopico('Como funciona a montagem e configuração de redes e internet?')">Redes e internet</button>
+    <button class="topico-chip" onclick="abrirTopico('Fazem desenvolvimento de aplicações mobile e web design?')">Desenvolvimento mobile & web design</button>
+    <button class="topico-chip" onclick="abrirTopico('Como funciona a montagem e manutenção de cerca eléctrica?')">Cerca eléctrica</button>
+    <button class="topico-chip" onclick="abrirTopico('Que serviços de design gráfico oferecem?')">Design gráfico</button>
+    <button class="topico-chip" onclick="abrirTopico('Que antivírus vendem e configuram?')">Antivírus</button>
+    <button class="topico-chip" onclick="abrirTopico('Como posso pedir um orçamento?')">Pedir orçamento</button>
+    <button class="topico-chip" onclick="abrirTopico('Que zonas ou regiões cobrem os vossos serviços?')">Área de cobertura</button>
+    <button class="topico-chip" onclick="abrirTopico('Fazem manutenção de sistemas já instalados?')">Manutenção</button>
+    <button class="topico-chip" onclick="abrirTopico('Como posso falar com um técnico ou consultor?')">Falar com um técnico</button>
+    <button class="topico-chip" onclick="abrirTopico('Como posso acompanhar o estado de um pedido em curso?')">Estado do pedido</button>
+</div>
 </section>
 
 
 <!-- ============================================================
      TESTEMUNHOS
 ============================================================ -->
-<section class="secao-testemunhos">
+<!-- <section class="secao-testemunhos">
     <div class="testemunhos-inner">
         <div class="secao-cabecalho">
             <p class="secao-label">Testemunhos</p>
@@ -1068,7 +1095,7 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         <div class="testemunhos-grid">
             <div class="testemunho">
                 <div class="testemunho-estrelas">★★★★★</div>
-                <p class="testemunho-texto">"Finalmente percebi o que são juros compostos e como usá-los a meu favor. O FinBot explica tudo sem linguagem chata."</p>
+                <p class="testemunho-texto">"Graças ao StechBotFinalmente percebi o que são juros compostos e como usá-los a meu favor. O StechBot explica tudo sem linguagem chata."</p>
                 <div class="testemunho-autor">
                     <div class="testemunho-avatar">MA</div>
                     <div>
@@ -1101,31 +1128,10 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
-<!-- ============================================================
-     CTA FINAL
-============================================================ -->
-<section class="secao-cta">
-    <div class="cta-bg"><div class="cta-glow"></div></div>
-    <h2 class="cta-titulo">Pronto para transformar as tuas finanças?</h2>
-    <p class="cta-desc">Junta-te a milhares de pessoas que já usam o FinBot para tomar melhores decisões financeiras todos os dias.</p>
-    <div class="cta-acoes">
-        <?php if ($logado): ?>
-            <a href="menu.php" class="btn-hero-primario">
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Abrir o Chat
-            </a>
-        <?php else: ?>
-            <a href="registo.php" class="btn-hero-primario">
-                Criar conta gratuita
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="menu.php" class="btn-hero-secundario">Experimentar sem conta</a>
-        <?php endif; ?>
-    </div>
-</section>
+
 
 
 <!-- ============================================================
@@ -1134,18 +1140,15 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
 <footer class="rodape">
     <div class="rodape-logo">
         <div class="nav-logo-icone" style="width:28px;height:28px;">
-            <svg width="16" height="16" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="13" stroke="var(--cor-acento)" stroke-width="1.5"/>
-                <circle cx="14" cy="14" r="2.5" fill="var(--cor-acento)"/>
-            </svg>
+     <img style="width:24px;height:24px;" src="logo.svg">
         </div>
-        <span class="rodape-nome">FinBot</span>
+        <span class="rodape-nome">StechBot</span>
     </div>
-    <span class="rodape-copy">© <?= date('Y') ?> FinBot — Educação Financeira com IA</span>
+    <span class="rodape-copy">© <?= date('Y') ?> StechBot - O seu assistente pessoal de IA</span>
     <div class="rodape-links">
-        <a href="login.php" class="rodape-link">Entrar</a>
-        <a href="registo.php" class="rodape-link">Registar</a>
-        <a href="menu.php" class="rodape-link">Chat</a>
+        <a href="" class="rodape-link"></a>
+        <a href="" class="rodape-link"></a>
+        <a href="" class="rodape-link"></a>
     </div>
 </footer>
 
@@ -1249,10 +1252,59 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
 
 
     /* ── Demo de chat animado ── */
-    const msgs = ['msg1','msg2','msg3','msg4'];
+/* ── Demo de chat: conversas variadas, escolhidas aleatoriamente ── */
+const conversasDemo = [
+    [
+        { tipo: 'bot',  texto: 'Olá! Como posso ajudar-te hoje?' },
+        { tipo: 'user', texto: 'Quero montar uma rede numa zona remota e sem rede móvel, quais equipamentos serão necessários para tal?' },
+        { tipo: 'bot',  texto: 'Claro! É uma situação bastante comum. Para te indicar os equipamentos certos, basta informares <strong style="color:var(--cor-acento)">o raio que pretendes que a rede cubra</strong>.A partir daí, envio-te a lista de equipamentos, alternativas possíveis e uma estimativa de orçamento.' },
+        { tipo: 'user', texto: 'Pretendo cobrir um raio de 3km' }
+    ],
+    [
+        { tipo: 'bot',  texto: 'Olá! Em que posso ajudar-te?' },
+        { tipo: 'user', texto: 'Quero instalar Starlink em minha casa, é possível?' },
+        { tipo: 'bot',  texto: 'Sim, fazemos montagem completa do Starlink! Só preciso saber <strong style="color:var(--cor-acento)">a localização e se já tens energia eléctrica disponível no local</strong>, para te passar os detalhes da instalação.' },
+        { tipo: 'user', texto: 'Tenho energia sim, é numa zona rural em Manica' }
+    ],
+    [
+        { tipo: 'bot',  texto: 'Olá! Como posso ajudar-te hoje?' },
+        { tipo: 'user', texto: 'Quero câmeras de segurança para o meu negócio, o que me recomendam?' },
+        { tipo: 'bot',  texto: 'Óptimo! Para recomendar a melhor solução, diz-me <strong style="color:var(--cor-acento)">quantas áreas queres cobrir e se precisas de visão nocturna</strong>. Assim já te indico os modelos e o orçamento aproximado.' },
+        { tipo: 'user', texto: 'São 4 áreas e sim, preciso de visão nocturna' }
+    ],
+    [
+        { tipo: 'bot',  texto: 'Olá! Em que posso ajudar-te?' },
+        { tipo: 'user', texto: 'Preciso de uma cerca eléctrica para o meu quintal, fazem esse serviço?' },
+        { tipo: 'bot',  texto: 'Sim, fazemos montagem e manutenção de cercas eléctricas! Indica-me <strong style="color:var(--cor-acento)">o perímetro aproximado a cobrir</strong> e já te avanço com as opções disponíveis.' },
+        { tipo: 'user', texto: 'O perímetro é de cerca de 80 metros' }
+    ]
+];
+
+function construirMensagemDemo(msg, idx) {
+    const wrapper = document.createElement('div');
+    wrapper.className = `chat-msg chat-msg-${msg.tipo}`;
+    wrapper.id = `msg${idx}`;
+    wrapper.innerHTML = `
+        <div class="chat-msg-avatar">${msg.tipo === 'bot' ? '🤖' : '👤'}</div>
+        <div class="chat-msg-balao">${msg.texto}</div>
+    `;
+    return wrapper;
+}
+
+const demoEl = document.getElementById('chat-demo');
+if (demoEl) {
+    const conversaEscolhida = conversasDemo[Math.floor(Math.random() * conversasDemo.length)];
+    const idsMsgs = [];
+
+    conversaEscolhida.forEach((msg, i) => {
+        const el = construirMensagemDemo(msg, i + 1);
+        demoEl.appendChild(el);
+        idsMsgs.push(el.id);
+    });
+
     const demoObserver = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
-            msgs.forEach((id, i) => {
+            idsMsgs.forEach((id, i) => {
                 setTimeout(() => {
                     const el = document.getElementById(id);
                     if (el) el.classList.add('visivel');
@@ -1262,8 +1314,8 @@ $nome   = $logado ? ($_SESSION['nome'] ?? 'Utilizador') : '';
         }
     }, { threshold: 0.3 });
 
-    const demoEl = document.getElementById('chat-demo');
-    if (demoEl) demoObserver.observe(demoEl);
+    demoObserver.observe(demoEl);
+}
 
 
     /* ── Fade-in ao scroll (passos, cards, testemunhos) ── */
