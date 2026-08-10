@@ -13,7 +13,9 @@ jobs:
         run: |
           echo "Disparando deploy do commit: ${{ github.event.head_commit.message }}"
 
+      - name: Aguardar propagação do Git
+        run: sleep 5
+
       - name: Trigger Deploy no Coolify
         run: |
-          curl -X GET "${{ secrets.COOLIFY_DEPLOY_URL }}" \
-               -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}
+          curl -X GET "${{ secrets.COOLIFY_DEPLOY_URL }}"
