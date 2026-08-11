@@ -320,14 +320,14 @@ if ($logado) {
     <div class="seccao-chats">
         <div class="seccao-chats-header">
             <span class="seccao-chats-titulo">Conversas</span>
-            <?php if ($logado): ?>
+            <!-- <?php if ($logado): ?>
             <button class="btn-novo-chat" id="btn-novo-chat">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
                 Nova
             </button>
-            <?php endif; ?>
+            <?php endif; ?> -->
         </div>
 
         <?php if ($logado): ?>
