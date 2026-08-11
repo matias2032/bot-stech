@@ -137,13 +137,16 @@ if ($logado) {
         .cta-login-beneficios li::before { content: '✦'; color: var(--cor-acento); font-size: 8px; flex-shrink: 0; }
         .btn-cta-login {
             display: block; width: 100%; padding: 0.55rem;
-            background: var(--cor-acento); color: #000;
+            background: var(--cor-user-balao);
+            color: #ffff;
             border: none; border-radius: var(--raio-sm);
             font-size: 12px; font-weight: 700; cursor: pointer;
             text-decoration: none; text-align: center;
             transition: opacity 0.2s; margin-bottom: 6px;
         }
-        .btn-cta-login:hover { opacity: 0.85; }
+        .btn-cta-login:hover { 
+        background: var(--cor-user-balao-hover);    
+        opacity: 0.85; }
         .btn-cta-registo {
             display: block; font-size: 11px; color: var(--cor-texto-3);
             text-decoration: none; text-align: center; padding: 2px;
@@ -374,25 +377,20 @@ if ($logado) {
             </div>
             <div class="balao">
                 <?php if ($logado): ?>
-                    <p>Olá, <strong><?= htmlspecialchars($utilizador['nome']) ?></strong>! Sou o <strong><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
+                    <p>Olá, <strong><?= htmlspecialchars($utilizador['nome']) ?></strong>! Sou o <strong style="color:var(--cor-user-balao)"><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
                 <?php else: ?>
-                    <p>Olá! Sou o <strong><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
+                    <p>Olá! Sou o <strong style="color:var(--cor-user-balao)"><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
                 <?php endif; ?>
                 <div class="sugestoes">
-                    <button class="sugestao" onclick="usarSugestao(this)">Quem te criou?</button>
-                    <button class="sugestao" onclick="usarSugestao(this)">O que sabes fazer?</button>
-                    <button class="sugestao" onclick="usarSugestao(this)">Que documentos tens disponíveis?</button>
-                </div>
+                         <button class="sugestao" onclick="usarSugestao(this)">O que sabes fazer?</button>
+                                   </div>
             </div>
         </div>
     </div>
 
     <div class="indicador-digitacao" id="indicador-digitacao" style="display:none">
         <div class="avatar-bot">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <circle cx="9" cy="9" r="8" stroke="var(--cor-acento)" stroke-width="1.2"/>
-                <circle cx="9" cy="9" r="2" fill="var(--cor-acento)"/>
-            </svg>
+<img style="width:20px;height:20px;" src="logo.svg">
         </div>
         <div class="balao balao-digitacao"><span></span><span></span><span></span></div>
     </div>
@@ -414,7 +412,7 @@ if ($logado) {
         </div>
         <p class="aviso-rodape">
             <?php if (!$logado): ?>
-                <a href="login.php" style="color: var(--cor-acento); text-decoration: none;">Entra na conta</a>
+                <a href="login.php" style="color: var(--cor-user-balao); text-decoration: none;">Entra na conta</a>
                 para guardar o histórico das tuas conversas.
             <?php else: ?>
                 As respostas baseiam-se no conhecimento configurado.
