@@ -116,7 +116,7 @@ if ($logado) {
         }
         .utilizador-avatar {
             width: 30px; height: 30px; border-radius: 50%;
-            background: var(--cor-acento-suave); border: 1px solid var(--cor-borda-forte);
+            background: transparent; border: 1px solid var(--cor-borda-forte);
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0; font-size: 12px; font-weight: 600; color: var(--cor-acento);
         }

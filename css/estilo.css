@@ -353,7 +353,7 @@ body {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--cor-acento-suave);
+    background: transparent;
     border: 1px solid var(--cor-borda-forte);
     display: flex;
     align-items: center;
