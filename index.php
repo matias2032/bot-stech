@@ -64,13 +64,22 @@ html[data-tema="escuro"] .navbar {
 html[data-tema="escuro"] .navbar.scrolled {
     background: rgba(23, 26, 33, 0.97);
 }
+
+/* Toggle de tema integrado no fluxo da navbar (evita sobrepor nav-cta/nav-user) */
+.navbar #btn-tema {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    margin-left: 4px;
+}
         .nav-logo {
             display: flex; align-items: center; gap: 10px;
             text-decoration: none;
         }
         .nav-logo-icone {
             width: 36px; height: 36px;
-            background: var(--cor-acento-suave);
+            background: transparent;
             border: 1px solid var(--cor-borda-forte);
             border-radius: var(--raio-sm);
             display: flex; align-items: center; justify-content: center;
@@ -718,15 +727,6 @@ html[data-tema="escuro"] .navbar.scrolled {
     </style>
 </head>
 <body>
-        <button id="btn-tema" title="Alternar tema" aria-label="Alternar tema claro/escuro">
-        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-        </svg>
-        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-    </button>
 
 <!-- ============================================================
      NAVBAR
@@ -750,11 +750,29 @@ html[data-tema="escuro"] .navbar.scrolled {
         <div class="nav-user-avatar"><?= mb_strtoupper(mb_substr($nome, 0, 1)) ?></div>
         <span class="nav-user-nome"><?= htmlspecialchars($nome) ?></span>
         <a href="menu.php" class="nav-cta">Abrir Chat</a>
+        <button id="btn-tema" title="Alternar tema" aria-label="Alternar tema claro/escuro">
+            <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
     </div>
     <?php else: ?>
     <div style="display:flex;gap:8px;align-items:center;">
         <a href="login.php" class="nav-link">Entrar</a>
         <a href="registo.php" class="nav-cta">Começar grátis</a>
+        <button id="btn-tema" title="Alternar tema" aria-label="Alternar tema claro/escuro">
+            <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
     </div>
     <?php endif; ?>
 </nav>
