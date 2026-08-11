@@ -141,7 +141,7 @@ $categorias = $stmt->fetchAll(PDO::FETCH_COLUMN);
             border-radius: 50%; background: #fff;
             transition: transform 0.2s;
         }
-        .toggle-ativo.ligado  { background: var(--cor-acento); }
+        .toggle-ativo.ligado  { background: var(--cor-user-balao-hover); }
         .toggle-ativo.desligado { background: var(--cor-borda-forte); }
         .toggle-ativo.ligado::after  { transform: translateX(16px); }
 
