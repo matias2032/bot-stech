@@ -292,6 +292,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.getElementById('id_sessao_anonimo').value = sessaoAnonima;
     }
 </script>
-    <script src="dark-mode.js"></script>
+    <script src="js/dark-mode.js"></script>
 </body>
 </html>

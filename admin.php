@@ -339,6 +339,6 @@ $ultimos_docs = $stmt->fetchAll();
 </div>
 </main>
     <script src="js/sidebar.js"></script>
-        <script src="dark-mode.js"></script>
+        <script src="js/dark-mode.js"></script>
 </body>
 </html>

@@ -283,6 +283,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </a>
 </div>
     <script src="js/sidebar.js"></script>
-    <script src="dark-mode.js"></script>
+    <script src="js/dark-mode.js"></script>
 </body>
 </html>
