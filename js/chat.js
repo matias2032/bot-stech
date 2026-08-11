@@ -65,21 +65,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 destacarItemActivo();
     _chatPronto = true;
 
-    // ── 3. Tópico vindo do index.php via URL ─────────────────
+// ── 3. Tópico vindo do index.php via URL ─────────────────
     const _params = new URLSearchParams(window.location.search);
     const _topico = _params.get('topico');
     if (_topico) {
         history.replaceState(null, '', 'menu.php');
         // Pequena pausa para o DOM estar totalmente pintado
         setTimeout(async () => {
-            if (!ID_SESSAO) {
-                await novaConversa();
-                if (!ID_SESSAO) return;
-            }
             campo.value = _topico;
             campo.style.height = 'auto';
             campo.dispatchEvent(new Event('input'));
-            await enviarMensagem();
+            await enviarMensagem(); // enviarMensagem já cria a conversa na BD se necessário
         }, 80);
     }
 });
@@ -131,14 +127,35 @@ async function carregarConversa(idConversa, limparPrimeiro = true) {
 }
 
 // ============================================================
-// NOVA CONVERSA
+// NOVA CONVERSA — reset visual (não toca na BD)
 // ============================================================
-async function novaConversa() {
+// Chamada pelos botões "Nova conversa" / "Nova". Só limpa o estado
+// actual do chat. A conversa só é criada na BD quando a primeira
+// mensagem for de facto enviada (ver criarConversaNaBD / enviarMensagem).
+function iniciarNovaConversa() {
+    ID_CONVERSA = null;
+    ID_SESSAO   = null;
+
+    const chave = UTILIZADOR_LOGADO ? 'chatbot_id_conversa' : 'chat_id_conversa';
+    localStorage.removeItem(chave);
+    if (!UTILIZADOR_LOGADO) {
+        localStorage.removeItem('chat_id_sessao');
+    }
+
+    limparJanela();
+    mostrarBoasVindas();
+    destacarItemActivo(); // remove o destaque de qualquer item, nenhuma conversa está activa
+}
+
+// ============================================================
+// CRIAR CONVERSA NA BD — só chamada quando há conteúdo real a enviar
+// ============================================================
+async function criarConversaNaBD() {
     try {
         const resp  = await fetch('api_conversas.php?acao=criar');
         const dados = await resp.json();
 
-        if (!dados.sucesso) return;
+        if (!dados.sucesso) return false;
 
         ID_CONVERSA = dados.dados.id_conversa;
         ID_SESSAO   = dados.dados.id_sessao;
@@ -154,11 +171,11 @@ async function novaConversa() {
             localStorage.setItem('chat_id_conversa', ID_CONVERSA);
         }
 
-        limparJanela();
-        mostrarBoasVindas();
+        return true;
 
     } catch (e) {
         console.error('Erro ao criar conversa:', e);
+        return false;
     }
 }
 
@@ -270,8 +287,8 @@ function bindItemChat(el) {
 // Bind nos itens já existentes no HTML (só existem se logado)
 document.querySelectorAll('.item-chat').forEach(bindItemChat);
 
-if (btnNovoChat) btnNovoChat.addEventListener('click', novaConversa);
-if (btnLimpar)   btnLimpar.addEventListener('click', novaConversa);
+if (btnNovoChat) btnNovoChat.addEventListener('click', iniciarNovaConversa);
+if (btnLimpar)   btnLimpar.addEventListener('click', iniciarNovaConversa);
 if (btnEnviar)   btnEnviar.addEventListener('click', enviarMensagem);
 
 // ============================================================
@@ -411,10 +428,10 @@ async function enviarMensagem() {
     const texto = campo.value.trim();
     if (!texto) return;
 
-    // Cria conversa automaticamente se ainda não existir
+    // Cria conversa na BD só agora, porque há de facto uma mensagem a enviar
     if (!ID_SESSAO) {
-        await novaConversa();
-        if (!ID_SESSAO) return; // falhou a criar — aborta
+        const criada = await criarConversaNaBD();
+        if (!criada) return; // falhou a criar — aborta
     }
 
     campo.value = '';
@@ -490,13 +507,8 @@ window.enviarTopicoInicial = async function(texto) {
         });
     }
 
-    if (!ID_SESSAO) {
-        await novaConversa();
-        if (!ID_SESSAO) return;
-    }
-
     campo.value = texto;
     campo.style.height = 'auto';
     campo.dispatchEvent(new Event('input'));
-    await enviarMensagem();
+    await enviarMensagem(); // enviarMensagem já cria a conversa na BD se necessário
 };
