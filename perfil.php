@@ -92,12 +92,12 @@ function val(array $arr, string $chave): string {
 
         .acoes-form { display: flex; gap: 10px; margin-top: 8px; }
         .btn-primario {
-            padding: 10px 24px; background: var(--cor-acento); color: #fff;
+            padding: 10px 24px; background: var(--cor-user-balao); color: #fff;
             border: none; border-radius: var(--raio-sm);
             font-family: var(--fonte-ui); font-size: 14px; font-weight: 600;
             cursor: pointer; transition: background var(--transicao);
         }
-        .btn-primario:hover { background: var(--cor-acento-hover); }
+        .btn-primario:hover { background: var(--cor-user-balao-hover); }
         .btn-primario:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .notificacao {

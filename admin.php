@@ -124,8 +124,8 @@ $ultimos_docs = $stmt->fetchAll();
             transition: all var(--transicao);
         }
         .btn-acao:hover { border-color: var(--cor-acento); color: var(--cor-acento); background: var(--cor-acento-suave); }
-        .btn-acao-destaque { background: var(--cor-acento); border-color: var(--cor-acento); color: #fff; }
-        .btn-acao-destaque:hover { background: var(--cor-acento-hover); color: #fff; }
+        .btn-acao-destaque { background: var(--cor-user-balao); border-color: var(--cor-user-balao); color: #fff; }
+        .btn-acao-destaque:hover { background: var(--cor-user-balao-hover); color: #fff; }
 
         /* Utilizador na sidebar */
         .utilizador-lateral {

@@ -76,12 +76,12 @@ $categorias = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
         .acoes-form { display: flex; gap: 10px; margin-top: 20px; }
         .btn-primario {
-            padding: 10px 22px; background: var(--cor-acento); color: #fff;
+            padding: 10px 22px; background: var(--cor-user-balao); color: #fff;
             border: none; border-radius: var(--raio-sm);
             font-family: var(--fonte-ui); font-size: 14px; font-weight: 600;
             cursor: pointer; transition: background var(--transicao);
         }
-        .btn-primario:hover { background: var(--cor-acento-hover); }
+        .btn-primario:hover { background: var(--cor-user-balao-hover); }
         .btn-secundario {
             padding: 10px 18px; background: transparent;
             border: 1px solid var(--cor-borda-forte); border-radius: var(--raio-sm);

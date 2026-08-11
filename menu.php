@@ -71,7 +71,8 @@ if ($logado) {
         .seccao-chats-titulo { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.4; }
         .btn-novo-chat {
             display: flex; align-items: center; gap: 0.3rem;
-            background: var(--cor-acento); color: #000;
+            background: var(--cor-user-balao);
+            color: #ffff;
             border: none; border-radius: 6px; padding: 0.3rem 0.6rem;
             font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
         }
@@ -370,16 +371,13 @@ if ($logado) {
     <div class="janela-mensagens" id="janela-mensagens">
         <div class="mensagem mensagem-bot" id="msg-boas-vindas">
             <div class="avatar-bot">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <circle cx="9" cy="9" r="8" stroke="var(--cor-acento)" stroke-width="1.2"/>
-                    <circle cx="9" cy="9" r="2" fill="var(--cor-acento)"/>
-                </svg>
+                   <img style="width:20px;height:20px;" src="logo.svg">
             </div>
             <div class="balao">
                 <?php if ($logado): ?>
-                    <p>Olá, <strong><?= htmlspecialchars($utilizador['nome']) ?></strong>! Sou o <strong style="color:var(--cor-user-balao)"><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
+                    <p>Olá, <strong><?= htmlspecialchars($utilizador['nome']) ?></strong>! Sou o <strong style="color:var(--cor-user-balao-hover)"><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
                 <?php else: ?>
-                    <p>Olá! Sou o <strong style="color:var(--cor-user-balao)"><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
+                    <p>Olá! Sou o <strong style="color:var(--cor-user-balao-hover)"><?= htmlspecialchars($nome_bot) ?></strong>. Como posso ajudar?</p>
                 <?php endif; ?>
                 <div class="sugestoes">
                          <button class="sugestao" onclick="usarSugestao(this)">O que sabes fazer?</button>
@@ -412,7 +410,7 @@ if ($logado) {
         </div>
         <p class="aviso-rodape">
             <?php if (!$logado): ?>
-                <a href="login.php" style="color: var(--cor-user-balao); text-decoration: none;">Entra na conta</a>
+                <a href="login.php" style="color: var(--cor-user-balao-hover); text-decoration: none;">Entra na conta</a>
                 para guardar o histórico das tuas conversas.
             <?php else: ?>
                 As respostas baseiam-se no conhecimento configurado.
