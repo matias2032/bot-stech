@@ -209,7 +209,32 @@ if ($logado) {
     }
 }
 
-/* Toggle de tema integrado no cabeçalho do chat — evita sobrepor o btn-limpar */
+/* Botão "Nova conversa" — topo da sidebar */
+.btn-nova-conversa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    background: var(--cor-fundo-3);
+    border: 1px solid var(--cor-borda-forte);
+    border-radius: var(--raio-sm);
+    font-family: var(--fonte-ui);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cor-texto);
+    cursor: pointer;
+    transition: all var(--transicao);
+}
+
+.btn-nova-conversa:hover {
+    border-color: var(--cor-acento);
+    color: var(--cor-acento);
+    background: var(--cor-acento-suave);
+}
+
+/* Toggle de tema integrado no cabeçalho do chat — evita sobrepor outros botões */
 .cabecalho-acoes {
     display: flex;
     align-items: center;
@@ -229,6 +254,15 @@ if ($logado) {
 <aside class="barra-lateral">
 
 <br><br>
+    <?php if ($logado): ?>
+    <button class="btn-nova-conversa" id="btn-limpar" title="Iniciar nova conversa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/>
+        </svg>
+        <span>Nova conversa</span>
+    </button>
+    <?php endif; ?>
     <div class="bot-info-lateral">
         <p class="bot-descricao"><?= htmlspecialchars($descricao_bot) ?></p>
     </div>
@@ -363,14 +397,7 @@ if ($logado) {
                 <p class="cabecalho-subtitulo">Online · Responde em segundos</p>
             </div>
         </div>
-        <div class="cabecalho-acoes">
-            <?php if ($logado): ?>
-            <button class="btn-limpar" id="btn-limpar" title="Nova conversa">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </button>
-            <?php endif; ?>
+<div class="cabecalho-acoes">
             <button id="btn-tema" title="Alternar tema" aria-label="Alternar tema claro/escuro">
                 <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="4"></circle>
