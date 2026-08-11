@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/configuracao.phpconfiguracao.php';
+require_once __DIR__ . '/configuracao.php';
 require_once __DIR__ . '/conexao.php';
 
 // NÃO redireciona — o index é público
@@ -425,12 +425,16 @@ if ($logado) {
 
 <script>
     const UTILIZADOR_LOGADO = <?= $logado ? 'true' : 'false' ?>;
-    <?php if ($logado && isset($_SESSION['migrar_sessao'])): ?>
-    const MIGRAR_SESSAO = <?= json_encode($_SESSION['migrar_sessao']) ?>;
-    <?php unset($_SESSION['migrar_sessao']); ?>
-    <?php else: ?>
-    const MIGRAR_SESSAO = null;
-    <?php endif; ?>
+    
+    // Declara a variável apenas uma vez, passando os dados ou null
+    const MIGRAR_SESSAO = <?= ($logado && isset($_SESSION['migrar_sessao'])) ? json_encode($_SESSION['migrar_sessao']) : 'null' ?>;
+    
+    <?php 
+    // Limpa a sessão após o uso (se existir)
+    if ($logado && isset($_SESSION['migrar_sessao'])) {
+        unset($_SESSION['migrar_sessao']); 
+    }
+    ?>
 </script>
 
 <script src="js/chat.js"></script>
