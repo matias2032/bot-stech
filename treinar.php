@@ -38,6 +38,14 @@ $categorias = $stmt->fetchAll(PDO::FETCH_COLUMN);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
+        <script>
+        (function () {
+            const tema = localStorage.getItem('tema-preferido');
+            if (tema === 'escuro') {
+                document.documentElement.setAttribute('data-tema', 'escuro');
+            }
+        })();
+    </script>
   
     <style>
         body { overflow: auto; }
@@ -171,6 +179,15 @@ $categorias = $stmt->fetchAll(PDO::FETCH_COLUMN);
     </style>
 </head>
 <body>
+    <button id="btn-tema" title="Alternar tema" aria-label="Alternar tema claro/escuro">
+        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
 
 <aside class="barra-lateral">
 
@@ -451,6 +468,6 @@ function mostrarNotificacao(msg, tipo) {
 </script>
     <script src="js/sidebar.js"></script>
 
-
+    <script src="dark-mode.js"></script>
 </body>
 </html>

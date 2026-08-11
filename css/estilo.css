@@ -34,6 +34,74 @@
 }
 
 /* ------------------------------------------------------------
+   TEMA ESCURO — overrides de variáveis
+   Ativado via atributo data-tema="escuro" no <html>
+------------------------------------------------------------ */
+html[data-tema="escuro"] {
+    --cor-fundo:         #0f1115;
+    --cor-fundo-2:       #171a21;
+    --cor-fundo-3:       #1e222b;
+    --cor-borda:         #2a2f3a;
+    --cor-borda-forte:   #383f4d;
+    --cor-acento-suave:  rgba(227, 30, 36, 0.14);
+    --cor-texto:         #e8eaed;
+    --cor-texto-2:       #a3a9b7;
+    --cor-texto-3:       #6b7280;
+    --cor-bot-balao:     #1e222b;
+    --cor-user-texto:    #ffffff;
+    --sombra:            0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* Transição suave ao alternar tema (opcional, mas evita "salto" brusco) */
+html {
+    transition: background var(--transicao);
+}
+body, .barra-lateral, .area-chat, .cabecalho-chat, .area-entrada,
+.balao, .campo-mensagem, .auth-card, .card-form, .card-preview,
+.card-stat, .card-tabela {
+    transition: background var(--transicao), border-color var(--transicao), color var(--transicao);
+}
+
+/* ------------------------------------------------------------
+   BOTÃO DE ALTERNAR TEMA — fixo, canto superior direito
+   Mesmo padrão visual do #btn-hamburger
+------------------------------------------------------------ */
+#btn-tema {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 200;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--raio-sm);
+    border: 1px solid var(--cor-borda);
+    background: var(--cor-fundo-2);
+    color: var(--cor-texto-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transicao);
+}
+
+#btn-tema:hover {
+    background: var(--cor-fundo-3);
+    color: var(--cor-acento);
+    border-color: var(--cor-acento);
+}
+
+#btn-tema svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Ícone sol/lua: mostra um consoante o tema ativo */
+.icone-sol  { display: inline-flex; }
+.icone-lua  { display: none; }
+html[data-tema="escuro"] .icone-sol { display: none; }
+html[data-tema="escuro"] .icone-lua { display: inline-flex; }
+
+/* ------------------------------------------------------------
    RESET E BASE
 ------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

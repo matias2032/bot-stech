@@ -61,6 +61,14 @@ if ($logado) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
+        <script>
+        (function () {
+            const tema = localStorage.getItem('tema-preferido');
+            if (tema === 'escuro') {
+                document.documentElement.setAttribute('data-tema', 'escuro');
+            }
+        })();
+    </script>
     <style>
         .seccao-chats { margin-top: 1.2rem; flex: 1; display: flex; flex-direction: column; min-height: 0; }
         .seccao-chats-header {
@@ -203,6 +211,16 @@ if ($logado) {
     </style>
 </head>
 <body>
+
+    <button id="btn-tema" title="Alternar tema" aria-label="Alternar tema claro/escuro">
+        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
 
 <aside class="barra-lateral">
 
@@ -435,6 +453,6 @@ if ($logado) {
 
 <script src="js/chat.js"></script>
 <script src="js/sidebar.js"></script>
-
+    <script src="dark-mode.js"></script>
 </body>
 </html>
