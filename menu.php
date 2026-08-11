@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/configuracao.php';
+require_once __DIR__ . '/configuracao.phpconfiguracao.php';
 require_once __DIR__ . '/conexao.php';
 
 // NÃO redireciona — o index é público
